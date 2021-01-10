@@ -56,13 +56,14 @@
 
       <div class="bground" id="bground">
         <div class="content">
-          <span class="close" id="close" ></span>
+          <span class="close" id="close"></span>
           <div class="modal-body">
             <form
+              id="form"
               name="reserve"
               action="index.html"
               method="get"
-              onsubmit="return validate();"
+              onsubmit=""
             >
               <div
                 class="formData">
@@ -73,7 +74,9 @@
                   id="first"
                   name="first"
                   minlength="2"
-                /><br>
+                />
+                <div class="error error-first"></div>
+                <br>
               </div>
               <div
                 class="formData">
@@ -83,7 +86,9 @@
                   type="text"
                   id="last"
                   name="last"
-                /><br>
+                />
+                <div class="error error-last"></div>
+                <br>
               </div>
               <div
                 class="formData">
@@ -93,7 +98,9 @@
                   type="email"
                   id="email"
                   name="email"
-                /><br>
+                />
+                <div class="error error-email"></div>
+                <br>
               </div>
               <div
                 class="formData">
@@ -103,12 +110,15 @@
                   type="date"
                   id="birthdate"
                   name="birthdate"
-                /><br>
+                />
+                <div class="error error-birthdate"></div>
+                <br>
               </div>
               <div
                 class="formData">
                 <label>À combien de tournois GameOn avez-vous déjà participé ?</label><br>
                 <input type="number" class="text-control" id="quantity" name="quantity" min="0" max="99">
+                <div class="error error-tournois"></div>
               </div>
               <p class="text-label">Quelles villes ?</p>
               <div
@@ -179,6 +189,7 @@
                   <span class="checkbox-icon"></span>
                   Portland</label
                 >
+                <div class="error error-radio"></div>
               </div>
 
               <div
@@ -187,12 +198,13 @@
                   class="checkbox-input"
                   type="checkbox"
                   id="checkbox1"
-                  checked
+                  
                 />
                 <label class="checkbox2-label" for="checkbox1" required>
                   <span class="checkbox-icon"></span>
                   J'ai lu et accepté les conditions d'utilisation.
                 </label>
+                <div class="error error-conditions"></div>
                 <br>
                 <input class="checkbox-input" type="checkbox" id="checkbox2" />
                 <label class="checkbox2-label" for="checkbox2">
