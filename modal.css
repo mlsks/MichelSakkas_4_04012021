@@ -141,6 +141,10 @@ main {
 
 /* Modal form */
 
+.espace {
+    height: 27vh;
+}
+
 .button {
     background: #fe142f;
     margin-top: 0.5em;
@@ -149,6 +153,13 @@ main {
     border-radius: 15px;
     cursor: pointer;
     font-size: 16px;
+}
+
+.modal-success-btn {
+    border: none;
+    margin: 0 auto;
+    display: block;
+    margin-bottom: 35px;
 }
 
 .button:hover {
@@ -163,6 +174,18 @@ main {
     display: none;
     position: fixed;
     z-index: 1;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    overflow: auto;
+    background-color: rgba(26, 39, 156, 0.4);
+}
+
+#bground {
+    display: none;
+    position: fixed;
+    z-index: 5;
     left: 0;
     top: 0;
     height: 100%;
@@ -210,7 +233,7 @@ input {
     font-size: 20px;
     height: 48px;
 }
-.formData[data-error]::after {
+/* .formData[data-error]::after {
     content: attr(data-error);
     font-size: 0.4em;
     color: #e54858;
@@ -227,7 +250,8 @@ input {
 }
 .formData[data-error-visible="true"] .text-control {
     border: 2px solid #e54858;
-}
+} */
+
 /* 
 input[data-error]::after {
     content: attr(data-error);
@@ -521,11 +545,8 @@ footer {
 
 .error {
     font-size: 1rem;
-    color: red;
+    color: #e54858;
     /* background-color: #fff; */
-}
-
-.radio {
 }
 
 @keyframes modalopen {

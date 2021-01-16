@@ -9,7 +9,9 @@ function editNav() {
 
 // DOM Elements
 const modalbg = document.querySelector(".bground")
+const modalSuccess = document.getElementById("bground")
 const modalBtn = document.querySelectorAll(".modal-btn")
+const modalSuccessBtn = document.querySelectorAll(".modal-success-btn")
 // const formData = document.querySelectorAll(".formData")
 
 const first = document.getElementById("first")
@@ -38,6 +40,11 @@ function launchModal() {
     modalbg.style.display = "block"
 }
 
+// launch modal success form
+function launchModalsuccess() {
+    modalSuccess.style.display = "block"
+}
+
 //  close modal
 
 const closeModalBtn = document.querySelectorAll(".close")
@@ -46,6 +53,24 @@ function closeModal() {
     modalbg.style.display = "none"
 }
 closeModalBtn.forEach((close) => close.addEventListener("click", closeModal))
+
+//  close success modal
+
+function closeModalSuccess() {
+    modalSuccess.style.display = "none"
+}
+closeModalBtn.forEach((close) =>
+    close.addEventListener("click", closeModalSuccess)
+)
+
+//  close success modal Button
+
+function closeModalSuccessButton() {
+    modalSuccess.style.display = "none"
+}
+modalSuccessBtn.forEach((close) =>
+    close.addEventListener("click", closeModalSuccessButton)
+)
 
 function checkRadios() {
     let radioChecked = 0
@@ -57,13 +82,15 @@ function checkRadios() {
     }
     return false
 }
-
 // console.log(checkRadios())
 
 // Tester toutes les fonctionnalités des boutons et des entrées de formulaire
+
 document
     .getElementById("btn-submit")
     .addEventListener("click", function (event) {
+        event.preventDefault()
+
         let error = 0
 
         let regexFirst = /^[A-Za-z]{2,75}$/.test(first.value)
@@ -133,11 +160,13 @@ document
 
         console.log("Il y a " + error + " erreur(s)")
 
-        if (error > 0) {
-            event.preventDefault()
-        }
+        // if (error > 0) {
+        //     event.preventDefault()
+        // }
 
         if (error < 1) {
-            alert("Merci ! Votre réservation a été reçue.")
+            closeModal()
+
+            launchModalsuccess()
         }
     })
