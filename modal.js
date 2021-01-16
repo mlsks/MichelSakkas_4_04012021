@@ -20,7 +20,16 @@ const email = document.getElementById("email")
 const birthdate = document.getElementById("birthdate")
 const tournois = document.getElementById("quantity")
 const radios = document.querySelectorAll("input[name='location']")
-const conditions = document.getElementById("checkbox1")
+
+let location1 = document.getElementById("location1")
+let location2 = document.getElementById("location2")
+let location3 = document.getElementById("location3")
+let location4 = document.getElementById("location4")
+let location5 = document.getElementById("location5")
+let location6 = document.getElementById("location6")
+
+let conditions = document.getElementById("checkbox1")
+let evenements = document.getElementById("checkbox2")
 
 const errorFirst = document.querySelector(".error-first")
 const errorLast = document.querySelector(".error-last")
@@ -67,6 +76,7 @@ closeModalBtn.forEach((close) =>
 
 function closeModalSuccessButton() {
     modalSuccess.style.display = "none"
+    return true
 }
 modalSuccessBtn.forEach((close) =>
     close.addEventListener("click", closeModalSuccessButton)
@@ -82,7 +92,6 @@ function checkRadios() {
     }
     return false
 }
-// console.log(checkRadios())
 
 // Tester toutes les fonctionnalités des boutons et des entrées de formulaire
 
@@ -160,13 +169,26 @@ document
 
         console.log("Il y a " + error + " erreur(s)")
 
-        // if (error > 0) {
-        //     event.preventDefault()
-        // }
-
         if (error < 1) {
             closeModal()
 
+            // location.reload(modalbg)
+
             launchModalsuccess()
+
+            // Reset Modal
+            first.value = ""
+            last.value = ""
+            email.value = ""
+            birthdate.value = ""
+            tournois.value = ""
+            location1.checked = false
+            location2.checked = false
+            location3.checked = false
+            location4.checked = false
+            location5.checked = false
+            location6.checked = false
+            conditions.checked = false
+            evenements.checked = false
         }
     })
